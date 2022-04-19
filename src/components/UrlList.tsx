@@ -1,5 +1,12 @@
 import React from 'react';
-import { Col, Container, ListGroup, ListGroupItem, Row } from 'reactstrap';
+import {
+  Button,
+  Col,
+  Container,
+  ListGroup,
+  ListGroupItem,
+  Row,
+} from 'reactstrap';
 import { UrlDto } from '../domain/short-url';
 
 type UrlListProps = {
@@ -7,7 +14,9 @@ type UrlListProps = {
 };
 export default function UrlList(props: UrlListProps) {
   const { items } = props;
-
+  const onCopyHandler = (url: string) => {
+    navigator.clipboard.writeText(url);
+  };
   return (
     <Container className="mt-3">
       <h3>Latests URL</h3>
@@ -20,6 +29,12 @@ export default function UrlList(props: UrlListProps) {
                   {item.shortUrl}
                 </a>
                 @ {item.longUrl}
+                <Button
+                  className="d-flex"
+                  onClick={() => onCopyHandler(item.shortUrl)}
+                >
+                  Copy short url
+                </Button>
               </ListGroupItem>
             ))}
           </ListGroup>
