@@ -1,7 +1,27 @@
-# Getting Started with Create React App
+# POC URL FRONT
+
+Tiny frontend for [poc-url tiny api](https://github.com/GianCastle/poc-url)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to start
+ ⚠️ Must have installed [poc-url tiny api](https://github.com/GianCastle/poc-url)
+ - Go to project directory
+ - Run `npm install`
+ - If everything goes ok, runs `npm start` ✅
+
+
+## Tech Stack
+- **Typescript**: as default per requirements
+- **React Hook Form**: I decided to use React Hook Form because it isolates the component and avoids the other components from re-rending and it easy to understand API. RHF will improve the performance by avoiding unwanted rendering in other child components. This allows us to extend our form if we wish or as our API grows without affecting our browser peformance. 
+- **Axios**: Axios is a http library that provide many useful features from the start such as Default JSON parsing, interceptors (which could be useful later on if we want to use a monitoring tool like LogRocket or Sentry or we want to make some actions based on the response or request type)
+- **Jest**: our main Javascript testing framework on `cra`
+
+
+## Known issues
+- This project only supports modern browsers due to `navigator.clipboard` API. We should add a Polyfill in case we want browser support for older browsers such as IE
+- Honestly, I didn't like having to pass as a dependency the isSucess state to the `useGetAllUrls` hook as a way to refresh the state. While in this small case it is not shocking, we could use better structured patterns such as a context that handles the whole flow of fetching URLs or use third party packages with even more elaborate patterns for fetching and state handling such as React Query. 
+- Although we use Bootstrap, in the current state of the project it is an overkill. But if we would like to extend the project with some design system, we can extend it by editing its SCSS variables and
 ## Available Scripts
 
 In the project directory, you can run:
@@ -39,8 +59,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
