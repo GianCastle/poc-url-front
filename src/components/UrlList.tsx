@@ -13,7 +13,10 @@ export default function UrlList(props: UrlListProps) {
       <ListGroup>
         {items?.map((item) => (
           <ListGroupItem key={item.id}>
-            {item.longUrl} @ {item.shortUrl}
+            <a href={item.longUrl} target="_blank" rel="noreferrer">
+              {item.longUrl}
+            </a>
+            @ {item.shortUrl}
           </ListGroupItem>
         ))}
       </ListGroup>
