@@ -1,5 +1,9 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import {
+  FormState,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from 'react-hook-form';
 import {
   Row,
   Col,
@@ -18,22 +22,25 @@ export type UrlFormSchema = {
 
 export type UrlFormProps = {
   onSubmit: (data: UrlFormSchema) => void;
+  handleSubmit: UseFormHandleSubmit<UrlFormSchema>;
+  register: UseFormRegister<UrlFormSchema>;
+  formState: FormState<UrlFormSchema>;
 };
 export default function UrlForm(props: UrlFormProps) {
-  const { onSubmit } = props;
   const {
-    register,
+    onSubmit,
     handleSubmit,
+    register,
     formState: { errors },
-  } = useForm<UrlFormSchema>();
-
+  } = props;
   return (
     <Container>
       <Row>
+        <h1>URL Shoterner</h1>
         <Col lg={12}>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <FormGroup>
-              <Label for="url">URL Shoterner</Label>
+              <Label for="longUrl">Type your URL</Label>
               <input
                 {...register('longUrl', {
                   required: 'URL is required',
