@@ -4,8 +4,8 @@ Tiny frontend for [poc-url tiny api](https://github.com/GianCastle/poc-url)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## How to start
- ⚠️ Must have installed [poc-url tiny api](https://github.com/GianCastle/poc-url)
+## How to start (locally)
+ ⚠️ Must have installed [poc-url tiny api](https://github.com/GianCastle/poc-url) 
  - Go to project directory
  - Run `npm install`
  - If everything goes ok, runs `npm start` ✅
@@ -21,7 +21,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Known issues
 - This project only supports modern browsers due to `navigator.clipboard` API. We should add a Polyfill in case we want browser support for older browsers such as IE
 - Honestly, I didn't like having to pass as a dependency the isSucess state to the `useGetAllUrls` hook as a way to refresh the state. While in this small case it is not shocking, we could use better structured patterns such as a context that handles the whole flow of fetching URLs or use third party packages with even more elaborate patterns for fetching and state handling such as React Query. 
-- Although we use Bootstrap, in the current state of the project it is an overkill. But if we would like to extend the project with some design system, we can extend it by editing its SCSS variables and
+- Although we use Bootstrap, in the current state of the project it is an overkill. But if we would like to extend the project with some design system, we can extend it by editing its SCSS variables
+- in case we want to deploy this, we have no deployment strategy for the backend, although the frontend can be easily deployed on platforms such as netlify.
+
 ## Available Scripts
 
 In the project directory, you can run:
